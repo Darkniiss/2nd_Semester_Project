@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AEnemyStates : MonoBehaviour
+public abstract class AEnemyStates : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected EnemyStateMachine stateMachine;
+    protected EnemyBehavior enemy;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public virtual void EnterState() { }
+
+    public virtual void UpdateState() { }
+
+    public virtual void ExitState() { }
+
+    public virtual AEnemyStates CheckState() { return null; }
 }
