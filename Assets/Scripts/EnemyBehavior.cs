@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float patrolSpeed;
+    public float chaseSpeed;
+    public float detectionRange;
+    public float distanceToPlayer;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private EnemyStateMachine stateMachine;
+
+    private void Update()
     {
-        
+        distanceToPlayer = (gameObject.transform.position - stateMachine.Player.transform.position).magnitude;
     }
 }

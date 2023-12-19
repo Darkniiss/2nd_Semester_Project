@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AEnemyStates : MonoBehaviour
+public abstract class AEnemyStates
 {
     protected EnemyStateMachine stateMachine;
     protected EnemyBehavior enemy;

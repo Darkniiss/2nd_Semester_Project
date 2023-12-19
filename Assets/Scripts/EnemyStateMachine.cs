@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
     public EnemyBehavior Enemy;
     public PlayerController Player;
+    public NavMeshAgent Agent;
     public List<Transform> Waypoints;
 
     private AEnemyStates curState;
@@ -13,7 +15,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Start()
     {
-        //curState = new PatrolState(this);
+        curState = new PatrolState(this);
         curState.EnterState();
     }
 

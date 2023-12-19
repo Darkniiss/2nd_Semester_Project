@@ -2,17 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolState : MonoBehaviour
+public class PatrolState : AEnemyStates
 {
-    // Start is called before the first frame update
-    void Start()
+    private Queue<Transform> queue;
+
+    public PatrolState(EnemyStateMachine _stateMachine)
     {
-        
+        stateMachine = _stateMachine;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EnterState()
     {
-        
+        queue = new Queue<Transform>();
+
+        stateMachine.Agent.speed = stateMachine.Enemy.patrolSpeed;
+
+        foreach (Transform waypoint in stateMachine.Waypoints) 
+        {
+            queue.Enqueue(waypoint);
+        }
+
+        stateMachine.Agent.SetDestination(queue.Peek().position);
+    }
+
+    public override void UpdateState()
+    {
+        if(stateMachine.Agent.remainingDistance == 0f)
+        {
+            queue.Enqueue(queue.Dequeue());
+        }
+
+        stateMachine.Agent.SetDestination(queue.Peek().position);
+    }
+
+    public override AEnemyStates CheckState()
+    {
+        if(stateMachine.Enemy.distanceToPlayer <= stateMachine.Enemy.detectionRange)
+        {
+            return new ChaseState(stateMachine);
+        }
+        return null;
+    }
+
+    public override void ExitState()
+    {
+
     }
 }
