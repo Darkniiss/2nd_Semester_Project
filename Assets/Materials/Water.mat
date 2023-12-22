@@ -113,6 +113,7 @@ Material:
     - _Thickness: 4
     - _VoronoiDensity: 8
     - _VoronoiSpeed: 1
+    - _WavePower: 0.1
     - _WaveSpeed: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
