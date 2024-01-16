@@ -49,6 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc64e2e22e656942b2aa47a52aec736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolSpeed: 3
+  chaseSpeed: 4
+  detectionRange: 3
+  distanceToPlayer: 0
+  stateMachine: {fileID: 8395336336017287830}
 --- !u!114 &8395336336017287830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +66,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2512095b331fd5d44b079c6173920af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 2181394545894553761}
+  Player: {fileID: 0}
+  Agent: {fileID: 5263701112011950622}
+  Waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &5263701112011950622
 NavMeshAgent:
   m_ObjectHideFlags: 0

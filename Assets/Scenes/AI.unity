@@ -123,33 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!195 &271119613 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 5263701112011950622, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-  m_PrefabInstance: {fileID: 2603698682669906465}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &271119614 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-  m_PrefabInstance: {fileID: 2603698682669906465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2512095b331fd5d44b079c6173920af4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &271119615 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2181394545894553761, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-  m_PrefabInstance: {fileID: 2603698682669906465}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afc64e2e22e656942b2aa47a52aec736, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &929673508
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,42 +848,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2181394545894553761, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: chaseSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181394545894553761, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: patrolSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181394545894553761, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: stateMachine
-      value: 
-      objectReference: {fileID: 271119614}
-    - target: {fileID: 2181394545894553761, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: detectionRange
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4384274237753582609, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: Agent
-      value: 
-      objectReference: {fileID: 271119613}
-    - target: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: Enemy
-      value: 
-      objectReference: {fileID: 271119615}
-    - target: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 7135270633577455667}
-    - target: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
-      propertyPath: Waypoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8395336336017287830, guid: 2228627b8196ab541aaab6b170ad07b5, type: 3}
       propertyPath: Waypoints.Array.data[0]
       value: 
@@ -936,58 +881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 627377125579152929, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_Speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
-      value: e12b2508-95e2-4930-8a0f-861e4b50f025
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
-      value: Player/Move[/Mouse/rightButton]
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7135270633577455667}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Move
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292510389637234120, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3719051575470088754, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4427268660694509635, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 7135270633577455662}
     - target: {fileID: 4427268660694509635, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
       propertyPath: camera
       value: 
@@ -1037,11 +934,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
---- !u!195 &7135270633577455662 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 627377125579152929, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
-  m_PrefabInstance: {fileID: 7135270633577455661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7135270633577455667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4427268660694509635, guid: 552a524f3e78fa34493997c4b537021c, type: 3}
