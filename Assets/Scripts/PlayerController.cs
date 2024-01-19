@@ -6,17 +6,55 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
-    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private float moveSpeed;
+    private Rigidbody playerRb;
+    private IInteractable interactable;
+
+    private void Awake()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
 
     public void Move(InputAction.CallbackContext context)
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        Vector2 moveVec = context.ReadValue<Vector2>();
+        Vector3 dirVec = new Vector3(moveVec.x, 0f, moveVec.y);
+        playerRb.velocity = dirVec * moveSpeed;
+    }
 
-        if (Physics.Raycast(ray, out hit))
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (interactable != null && context.performed)
         {
-            agent.SetDestination(hit.point);
+            interactable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            interactable = other.gameObject.GetComponent<IInteractable>();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(interactable == null)
+        {
+            if (other.gameObject.layer == 7)
+            {
+                interactable = other.gameObject.GetComponent<IInteractable>();
+
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            interactable = null;
         }
     }
 }

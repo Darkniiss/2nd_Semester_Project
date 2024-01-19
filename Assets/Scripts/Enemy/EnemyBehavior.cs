@@ -15,4 +15,25 @@ public class EnemyBehavior : MonoBehaviour
     {
         distanceToPlayer = (gameObject.transform.position - stateMachine.Player.transform.position).magnitude;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            var torchScript = other.gameObject.GetComponent<Torch>();
+
+            if (torchScript.isLit)
+            {
+                detectionRange = 6;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Torch"))
+        {
+            detectionRange = 3;
+        }
+    }
 }
