@@ -11,8 +11,14 @@ public class EnemyBehavior : MonoBehaviour
     public float detectionRange;
     public float attackRange;
     public float DistanceToPlayer { get; private set; }
+    public Animator EnemyAnim;
 
     [SerializeField] private EnemyStateMachine stateMachine;
+
+    private void Awake()
+    {
+        EnemyAnim = GetComponent<Animator>();
+    }
 
     private void Update()
     {

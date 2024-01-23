@@ -7,19 +7,40 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
+    private Vector3 dirVec;
+    private Quaternion Rotation;
     private Rigidbody playerRb;
+    private Animator playerAnim;
     private IInteractable interactable;
 
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Rotation, rotationSpeed);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         Vector2 moveVec = context.ReadValue<Vector2>();
-        Vector3 dirVec = new Vector3(moveVec.x, 0f, moveVec.y);
+        dirVec = new Vector3(moveVec.x, 0f, moveVec.y);
         playerRb.velocity = dirVec * moveSpeed;
+        playerAnim.SetBool("IsRunning", true);
+
+        if(dirVec !=  Vector3.zero)
+        {
+            Rotation = Quaternion.LookRotation(dirVec, Vector3.up);
+        }
+
+        if(context.canceled)
+        {
+            playerAnim.SetBool("IsRunning", false);
+        }
     }
 
     public void Interact(InputAction.CallbackContext context)

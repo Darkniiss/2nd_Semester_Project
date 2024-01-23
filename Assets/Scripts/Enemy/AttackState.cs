@@ -15,6 +15,7 @@ public class AttackState : AEnemyStates
     {
         timePassed = 0f;
         stateMachine.Agent.speed = stateMachine.Enemy.attackSpeed;
+        
     }
 
     public override void UpdateState()
@@ -34,14 +35,15 @@ public class AttackState : AEnemyStates
 
     public override void ExitState()
     {
-        
+        stateMachine.Enemy.EnemyAnim.SetBool("IsAttacking", false);
     }
 
     private void Attack()
     {
         if(timePassed >= stateMachine.Enemy.attackFrequency)
         {
-            stateMachine.PlayerHealth.CurHealth--;
+            stateMachine.Enemy.EnemyAnim.SetBool("IsAttacking", true);
+            stateMachine.PlayerHealth.TakeDamage();
             timePassed = 0f;
         }
     }

@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
-    public float MaxHealth {  get; private set; }
-    public float CurHealth;
-    private float maxHealth = 3f;
+    private Animator playerAnim;
+    [SerializeField] private float curHealth;
+    [SerializeField] private float maxHealth;
+
+    private void Awake()
+    {
+        playerAnim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
-        MaxHealth = maxHealth;
-        CurHealth = maxHealth;
+        curHealth = maxHealth;
     }
 
-    private void Update()
+    public void TakeDamage()
     {
-        if(CurHealth <= 0)
+        curHealth--;
+        playerAnim.SetTrigger("HitTrigger");
+        if(curHealth <= 0)
         {
-            Destroy(gameObject);
+            playerAnim.SetBool("IsAlive", false);
         }
     }
 }

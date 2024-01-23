@@ -23,6 +23,7 @@ public class PatrolState : AEnemyStates
         }
 
         stateMachine.Agent.SetDestination(queue.Peek().position);
+        stateMachine.Enemy.EnemyAnim.SetBool("IsRunning", true);
     }
 
     public override void UpdateState()
@@ -46,6 +47,6 @@ public class PatrolState : AEnemyStates
 
     public override void ExitState()
     {
-
+        stateMachine.Enemy.EnemyAnim.SetBool("IsRunning", false);
     }
 }
