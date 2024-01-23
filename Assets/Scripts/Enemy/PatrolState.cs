@@ -37,7 +37,7 @@ public class PatrolState : AEnemyStates
 
     public override AEnemyStates CheckState()
     {
-        if(stateMachine.Enemy.distanceToPlayer <= stateMachine.Enemy.detectionRange)
+        if(stateMachine.Enemy.DistanceToPlayer <= stateMachine.Enemy.detectionRange)
         {
             return new ChaseState(stateMachine);
         }

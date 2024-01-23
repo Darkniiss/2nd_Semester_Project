@@ -16,14 +16,18 @@ public class ChaseState : AEnemyStates
 
     public override void UpdateState()
     {
-        stateMachine.Agent.SetDestination(stateMachine.Player.transform.position);
+        stateMachine.Agent.SetDestination(stateMachine.PlayerCon.transform.position);
     }
 
     public override AEnemyStates CheckState()
     {
-        if(stateMachine.Enemy.distanceToPlayer > stateMachine.Enemy.detectionRange)
+        if(stateMachine.Enemy.DistanceToPlayer > stateMachine.Enemy.detectionRange)
         {
             return new PatrolState(stateMachine);
+        }
+        else if(stateMachine.Enemy.DistanceToPlayer <= stateMachine.Enemy.attackRange)
+        {
+            return new AttackState(stateMachine);
         }
         return null;
     }

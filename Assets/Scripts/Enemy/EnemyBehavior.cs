@@ -6,14 +6,17 @@ public class EnemyBehavior : MonoBehaviour
 {
     public float patrolSpeed;
     public float chaseSpeed;
+    public float attackSpeed;
+    public float attackFrequency;
     public float detectionRange;
-    public float distanceToPlayer;
+    public float attackRange;
+    public float DistanceToPlayer { get; private set; }
 
     [SerializeField] private EnemyStateMachine stateMachine;
 
     private void Update()
     {
-        distanceToPlayer = (gameObject.transform.position - stateMachine.Player.transform.position).magnitude;
+        DistanceToPlayer = (gameObject.transform.position - stateMachine.PlayerCon.transform.position).magnitude;
     }
 
     private void OnTriggerStay(Collider other)

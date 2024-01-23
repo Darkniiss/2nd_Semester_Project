@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyStateMachine : MonoBehaviour
 {
     public EnemyBehavior Enemy;
-    public PlayerController Player;
+    public PlayerController PlayerCon;
+    public PlayerHealthSystem PlayerHealth;
     public NavMeshAgent Agent;
     public List<Transform> Waypoints;
 
