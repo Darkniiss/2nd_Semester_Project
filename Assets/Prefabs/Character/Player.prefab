@@ -5817,6 +5817,7 @@ GameObject:
   - component: {fileID: 4124392252110108364}
   - component: {fileID: 5537300405964012785}
   - component: {fileID: 9203365241302098369}
+  - component: {fileID: 3197101691583360019}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5946,7 +5947,19 @@ MonoBehaviour:
     m_ActionId: e12b2508-95e2-4930-8a0f-861e4b50f025
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4124392252110108364}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 912ee2c8-8b82-4865-a342-7d1363f81846
     m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
@@ -5975,6 +5988,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7309027, y: 1.9090749, z: 0.64502096}
   m_Center: {x: -0.014313698, y: 0.95453745, z: 0}
+--- !u!114 &3197101691583360019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830252117840521031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab27c1de7694b3643bac5168565bd8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 5
 --- !u!1 &8985227974688422736
 GameObject:
   m_ObjectHideFlags: 0
