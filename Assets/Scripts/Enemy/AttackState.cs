@@ -35,14 +35,14 @@ public class AttackState : AEnemyStates
 
     public override void ExitState()
     {
-        stateMachine.Enemy.EnemyAnim.SetBool("IsAttacking", false);
+        stateMachine.Enemy.enemyAnim.SetBool("IsAttacking", false);
     }
 
     private void Attack()
     {
         if(timePassed >= stateMachine.Enemy.attackFrequency)
         {
-            stateMachine.Enemy.EnemyAnim.SetBool("IsAttacking", true);
+            stateMachine.Enemy.enemyAnim.SetBool("IsAttacking", true);
             stateMachine.PlayerHealth.TakeDamage();
             timePassed = 0f;
         }

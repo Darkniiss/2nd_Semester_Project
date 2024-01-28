@@ -12,7 +12,7 @@ public class ChaseState : AEnemyStates
     public override void EnterState()
     {
         stateMachine.Agent.speed = stateMachine.Enemy.chaseSpeed;
-        stateMachine.Enemy.EnemyAnim.SetBool("IsChasing", true);
+        stateMachine.Enemy.enemyAnim.SetBool("IsChasing", true);
     }
 
     public override void UpdateState()
@@ -35,6 +35,6 @@ public class ChaseState : AEnemyStates
 
     public override void ExitState()
     {
-        stateMachine.Enemy.EnemyAnim.SetBool("IsChasing", false);
+        stateMachine.Enemy.enemyAnim.SetBool("IsChasing", false);
     }
 }

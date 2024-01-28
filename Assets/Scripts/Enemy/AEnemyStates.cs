@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class AEnemyStates
 {
     protected EnemyStateMachine stateMachine;
-    protected EnemyBehavior enemy;
 
     public virtual void EnterState() { }
 

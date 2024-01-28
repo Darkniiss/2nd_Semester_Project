@@ -11,18 +11,18 @@ public class EnemyBehavior : MonoBehaviour
     public float detectionRange;
     public float attackRange;
     public float DistanceToPlayer { get; private set; }
-    public Animator EnemyAnim;
+    public Animator enemyAnim;
 
-    [SerializeField] private EnemyStateMachine stateMachine;
+    [SerializeField] private PlayerController Player;
 
     private void Awake()
     {
-        EnemyAnim = GetComponent<Animator>();
+        enemyAnim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        DistanceToPlayer = (gameObject.transform.position - stateMachine.PlayerCon.transform.position).magnitude;
+        DistanceToPlayer = (gameObject.transform.position - Player.transform.position).magnitude;
     }
 
     private void OnTriggerStay(Collider other)
