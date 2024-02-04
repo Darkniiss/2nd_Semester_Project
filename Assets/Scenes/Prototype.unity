@@ -471,9 +471,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1432790152277237629, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937590844868009240, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3496809350910398638, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
       propertyPath: m_Name
       value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872420366194454403, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6194327326191598958, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
       propertyPath: m_LocalPosition.x
@@ -514,6 +526,10 @@ PrefabInstance:
     - target: {fileID: 6194327326191598958, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617673969224712340, guid: 56630fd7466d42340addf0ff81a89578, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
