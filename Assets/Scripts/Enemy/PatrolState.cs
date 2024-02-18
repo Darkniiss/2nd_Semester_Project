@@ -15,30 +15,31 @@ public class PatrolState : AEnemyStates
     {
         queue = new Queue<Transform>();
 
-        stateMachine.Agent.speed = stateMachine.Enemy.patrolSpeed;
+        stateMachine.agent.speed = stateMachine.enemy.patrolSpeed;
 
-        foreach (Transform waypoint in stateMachine.Waypoints) 
+        foreach (Transform waypoint in stateMachine.waypoints) 
         {
             queue.Enqueue(waypoint);
         }
 
-        stateMachine.Agent.SetDestination(queue.Peek().position);
-        stateMachine.Enemy.enemyAnim.SetBool("IsRunning", true);
+        stateMachine.agent.SetDestination(queue.Peek().position);
+        stateMachine.enemy.enemyAnim.SetBool("IsWalking", true);
     }
 
     public override void UpdateState()
     {
-        if(stateMachine.Agent.remainingDistance == 0f)
+        if(stateMachine.agent.remainingDistance <= 1f)
         {
+            
             queue.Enqueue(queue.Dequeue());
         }
 
-        stateMachine.Agent.SetDestination(queue.Peek().position);
+        stateMachine.agent.SetDestination(queue.Peek().position);
     }
 
     public override AEnemyStates CheckState()
     {
-        if(stateMachine.Enemy.DistanceToPlayer <= stateMachine.Enemy.detectionRange)
+        if(stateMachine.enemy.DistanceToPlayer <= stateMachine.enemy.detectionRange && stateMachine.playerHealth.isAlive)
         {
             return new ChaseState(stateMachine);
         }
@@ -47,6 +48,6 @@ public class PatrolState : AEnemyStates
 
     public override void ExitState()
     {
-        stateMachine.Enemy.enemyAnim.SetBool("IsRunning", false);
+        stateMachine.enemy.enemyAnim.SetBool("IsWalking", false);
     }
 }

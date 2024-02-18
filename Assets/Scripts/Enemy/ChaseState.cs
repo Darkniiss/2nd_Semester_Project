@@ -11,22 +11,22 @@ public class ChaseState : AEnemyStates
 
     public override void EnterState()
     {
-        stateMachine.Agent.speed = stateMachine.Enemy.chaseSpeed;
-        stateMachine.Enemy.enemyAnim.SetBool("IsChasing", true);
+        stateMachine.agent.speed = stateMachine.enemy.chaseSpeed;
+        stateMachine.enemy.enemyAnim.SetBool("IsChasing", true);
     }
 
     public override void UpdateState()
     {
-        stateMachine.Agent.SetDestination(stateMachine.PlayerCon.transform.position);
+        stateMachine.agent.SetDestination(stateMachine.playerCon.transform.position);
     }
 
     public override AEnemyStates CheckState()
     {
-        if(stateMachine.Enemy.DistanceToPlayer > stateMachine.Enemy.detectionRange)
+        if(stateMachine.enemy.DistanceToPlayer > stateMachine.enemy.detectionRange)
         {
             return new PatrolState(stateMachine);
         }
-        else if(stateMachine.Enemy.DistanceToPlayer <= stateMachine.Enemy.attackRange)
+        else if(stateMachine.enemy.DistanceToPlayer <= stateMachine.enemy.attackRange)
         {
             return new AttackState(stateMachine);
         }
@@ -35,6 +35,6 @@ public class ChaseState : AEnemyStates
 
     public override void ExitState()
     {
-        stateMachine.Enemy.enemyAnim.SetBool("IsChasing", false);
+        stateMachine.enemy.enemyAnim.SetBool("IsChasing", false);
     }
 }

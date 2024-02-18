@@ -14,8 +14,9 @@ public class AttackState : AEnemyStates
     public override void EnterState()
     {
         timePassed = 0f;
-        stateMachine.Agent.speed = stateMachine.Enemy.attackSpeed;
-        
+        stateMachine.agent.speed = 0f;
+        stateMachine.enemy.enemyAnim.SetBool("IsInAttackRange", true);
+
     }
 
     public override void UpdateState()
@@ -26,24 +27,29 @@ public class AttackState : AEnemyStates
 
     public override AEnemyStates CheckState()
     {
-        if(stateMachine.Enemy.DistanceToPlayer > stateMachine.Enemy.attackRange)
+        if (stateMachine.enemy.DistanceToPlayer > stateMachine.enemy.attackRange)
         {
             return new ChaseState(stateMachine);
+        }
+        if (!stateMachine.playerHealth.isAlive && timePassed > 0.6f)
+        {
+            return new PatrolState(stateMachine);
         }
         return null;
     }
 
     public override void ExitState()
     {
-        stateMachine.Enemy.enemyAnim.SetBool("IsAttacking", false);
+        stateMachine.enemy.enemyAnim.SetBool("IsInAttackRange", false);
+        stateMachine.enemy.enemyAnim.SetBool("IsAttacking", false);
     }
 
     private void Attack()
     {
-        if(timePassed >= stateMachine.Enemy.attackFrequency)
+        if (timePassed >= stateMachine.enemy.attackWait)
         {
-            stateMachine.Enemy.enemyAnim.SetBool("IsAttacking", true);
-            stateMachine.PlayerHealth.TakeDamage();
+            stateMachine.enemy.enemyAnim.SetBool("IsAttacking", true);
+            stateMachine.playerHealth.TakeDamage();
             timePassed = 0f;
         }
     }
